@@ -40,16 +40,19 @@
 ;; interpreted as representing official policies, either expressed
 ;; or implied, of Chunyang Xu.
 
-;; You should have received a copy of the GNU General Public License
-;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
 ;;; Commentary:
 
 ;;
 
 ;;; Code:
 
+;;;###autoload
+(define-derived-mode portfile-mode tcl-mode "Portfile"
+  "Major mode for editing MacPorts Portfile files."
+  (message-box "[DEBUG] entering portfile-mode in %s" (buffer-name)))
 
+;;;###autoload
+(add-to-list 'auto-mode-alist '("/Portfile\\'" . portfile-mode)) ; NOTE: Why "\\`Portfile\\'" not work?
 
 (provide 'portfile-mode)
 ;;; portfile-mode.el ends here
